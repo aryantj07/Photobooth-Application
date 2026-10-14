@@ -1,5 +1,5 @@
 
-# Snapstory 📸
+# Snapstory
 
 A self-service photo booth application built with Flask.
 
