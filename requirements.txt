@@ -1,4 +1,4 @@
-﻿Flask
+Flask
 Pillow
 pytest
 razorpay
