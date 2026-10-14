@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snapstory — Photo Booth</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="#" id="home-link">
+            <span class="brand-mark">s.</span> snapstory
+        </a>
+        <span class="top-note">YOUR PERSONAL PHOTO STUDIO</span>
+    </header>
+
+    <main>
+        <section class="screen welcome active" id="welcome-screen">
+            <div class="welcome-content">
+                <p class="eyebrow">A LITTLE MOMENT, FOREVER</p>
+                <h1>Make a little<br><em>magic.</em></h1>
+                <p class="description">Four frames. One beautiful memory.</p>
+                <button class="button button-dark button-large" id="start-button">
+                    Start your experience <span>↗</span>
+                </button>
+                <p class="microcopy">TAKES ABOUT 2 MINUTES</p>
+            </div>
+            <div class="welcome-decoration decoration-one">MEMORIES<br>MADE HERE</div>
+            <div class="welcome-decoration decoration-two">01 — 04</div>
+        </section>
+
+        <section class="screen" id="package-screen">
+            <div class="page-heading">
+                <p class="eyebrow">01 / YOUR EXPERIENCE</p>
+                <h2>Choose your <em>prints.</em></h2>
+                <p>One session. Four photographs. Your memories to keep.</p>
+            </div>
+
+            <div class="package-grid">
+                <button class="package-card selected" data-copies="1" data-price="99">
+                    <span class="package-label">THE CLASSIC</span>
+                    <span class="package-number">01</span>
+                    <span class="package-title">One for you</span>
+                    <span class="package-detail">4 photographs · 1 strip</span>
+                    <span class="package-price">₹99</span>
+                </button>
+
+                <button class="package-card" data-copies="2" data-price="149">
+                    <span class="package-label">THE DOUBLE</span>
+                    <span class="package-number">02</span>
+                    <span class="package-title">One to share</span>
+                    <span class="package-detail">4 photographs · 2 strips</span>
+                    <span class="package-price">₹149</span>
+                </button>
+            </div>
+
+            <div class="bottom-actions">
+                <button class="button button-light" data-go="welcome-screen">Back</button>
+                <button class="button button-dark" id="continue-button">Continue →</button>
+            </div>
+        </section>
+
+        
+<section class="screen" id="payment-screen">
+    <div class="page-heading">
+        <p class="eyebrow">02 / SECURE CHECKOUT</p>
+        <h2>Your moment is <em>almost yours.</em></h2>
+        <p>Review your package before continuing to your photo session.</p>
+    </div>
+
+    <div class="payment-layout">
+        <div class="payment-card">
+            <p class="eyebrow">YOUR SELECTED PACKAGE</p>
+            <div class="payment-package">
+                <div>
+                    <h3 id="payment-package-name">The Classic</h3>
+                    <p id="payment-package-description">4 photographs · 1 strip</p>
+                </div>
+                <strong id="payment-total">₹99</strong>
+            </div>
+
+            <div class="payment-divider"></div>
+
+            <p class="eyebrow">PAYMENT METHOD</p>
+
+            <div class="payment-method selected">
+                <span class="payment-method-icon">₹</span>
+                <span>
+                    <strong>Online payment</strong>
+                    <small>UPI and other available methods</small>
+                </span>
+                <span class="payment-method-check">✓</span>
+            </div>
+
+            <div class="payment-notice">
+                <span>i</span>
+                <p>
+                    Online payments will be enabled after Razorpay is configured.
+                    No real payment is being collected in this prototype.
+                </p>
+            </div>
+
+            <button class="button button-dark button-full" id="pay-button">
+                Pay securely →
+            </button>
+            <p class="demo-label">RAZORPAY TEST MODE · NO REAL MONEY CHARGED</p>    
+
+            <p class="demo-label">DEVELOPMENT MODE · NO MONEY WILL BE CHARGED</p>
+
+            <button class="button button-light button-full" id="payment-back">
+                Back to packages
+            </button>
+        </div>
+
+        <aside class="payment-aside">
+            <div class="payment-aside-mark">s.</div>
+            <h3>A little moment.<br><em>A lasting memory.</em></h3>
+            <p>
+                Your session includes four photographs arranged into a
+                keepsake strip, ready to preview and print.
+            </p>
+            <div class="payment-benefit">✓ &nbsp; Four photo captures</div>
+            <div class="payment-benefit">✓ &nbsp; Personal photo-strip preview</div>
+            <div class="payment-benefit">✓ &nbsp; Selected number of print copies</div>
+            </aside>
+        </div>
+    </section>
+
+
+        <section class="screen" id="camera-screen">
+            <div class="page-heading">
+                <p class="eyebrow">02 / PHOTO SESSION</p>
+                <h2>Ready, <em>set, smile.</em></h2>
+                <p id="camera-instruction">Find your pose. Your first photo is coming up.</p>
+            </div>
+
+            <div class="camera-layout">
+                <div class="camera-frame">
+                    <video id="camera-video" autoplay playsinline muted></video>
+                    <canvas id="capture-canvas" hidden></canvas>
+                    <div class="camera-placeholder" id="camera-placeholder">
+                        <span class="camera-symbol">◎</span>
+                        <p>Your camera preview will appear here.</p>
+                        <button class="button button-light" id="enable-camera">Enable camera</button>
+                        <button class="text-button" id="demo-camera">Use demo mode</button>
+                    </div>
+                    <div class="countdown" id="countdown" hidden>3</div>
+                    <span class="camera-counter" id="photo-counter">PHOTO 01 / 04</span>
+                </div>
+
+                <aside class="capture-sidebar">
+                    <p class="eyebrow">YOUR PHOTO STRIP</p>
+                    <div class="thumbnail-list" id="thumbnail-list">
+                        <div class="thumbnail empty">01</div>
+                        <div class="thumbnail empty">02</div>
+                        <div class="thumbnail empty">03</div>
+                        <div class="thumbnail empty">04</div>
+                    </div>
+                    <p class="sidebar-note">Four moments. Captured one at a time.</p>
+                    <button class="button button-dark button-full" id="capture-button">Take photo</button>
+                    <button class="button button-light button-full" id="retake-button" hidden>Retake last photo</button>
+                    <button class="text-button" data-go="package-screen">Cancel session</button>
+                </aside>
+            </div>
+        </section>
+
+        <section class="screen" id="preview-screen">
+            <div class="page-heading">
+                <p class="eyebrow">03 / YOUR KEEPSAKE</p>
+                <h2>Look what we <em>made.</em></h2>
+                <p>Your memories, arranged into one little strip.</p>
+            </div>
+
+            <div class="preview-layout">
+                <div class="strip-stage">
+                    <canvas id="strip-canvas" width="600" height="1800"></canvas>
+                </div>
+                <div class="preview-info">
+                    <p class="eyebrow">MADE JUST FOR YOU</p>
+                    <h3>Four frames.<br>A forever memory.</h3>
+                    <p>Happy with your photos? Continue to the print preview.</p>
+                    <button class="button button-dark button-full" id="print-button">Continue to print →</button>
+                    <button class="button button-light button-full" id="redo-button">Retake all photos</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen" id="print-screen">
+            <div class="page-heading">
+                <p class="eyebrow">04 / READY TO PRINT</p>
+                <h2>Your strip is <em>ready.</em></h2>
+                <p>Take one last look before printing your keepsake.</p>
+            </div>
+
+            <div class="print-layout">
+                <canvas id="final-strip" width="600" height="1800"></canvas>
+                <div class="print-info">
+                    <p class="eyebrow">YOUR ORDER</p>
+                    <h3 id="order-title">The Classic</h3>
+                    <p id="order-detail">1 photo strip · 4 photographs</p>
+                    <p class="order-price" id="order-price">₹99</p>
+                    <p class="sidebar-note">Demo mode: no payment will be collected and no physical print will be produced.</p>
+                    <button class="button button-dark button-full" id="confirm-print">Simulate printing</button>
+                    <button class="button button-light button-full" data-go="preview-screen">Back to preview</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen completion" id="complete-screen">
+            <div class="completion-mark">✓</div>
+            <p class="eyebrow">YOUR SESSION IS COMPLETE</p>
+            <h2>A little magic,<br><em>just for you.</em></h2>
+            <p id="completion-message">Your demo print has been prepared.</p>
+            <button class="button button-dark button-large" id="new-session">Start a new session ↗</button>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span>SNAPSTORY STUDIO</span>
+        <span>MADE FOR YOUR MOMENTS</span>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Environment variables and secrets
+.env
+.env.*
+
+# Local database and runtime data
+snapstory.db
+instance/
+data/
+
+# Testing and editor files
+.pytest_cache/
+.coverage
+.idea/
+.vscode/
