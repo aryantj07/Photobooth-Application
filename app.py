@@ -31,7 +31,12 @@ PACKAGES = {
     },
 }
 
-DB_PATH = BASE_DIR / "snapstory.db"
+# Vercel's /tmp directory is writable but temporary.
+# Locally, keep using the project database.
+if os.getenv("VERCEL"):
+    DB_PATH = Path("/tmp/snapstory.db")
+else:
+    DB_PATH = BASE_DIR / "snapstory.db"
 
 
 def get_client():
