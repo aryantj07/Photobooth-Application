@@ -38,23 +38,55 @@
                 <p>One session. Four photographs. Your memories to keep.</p>
             </div>
 
-            <div class="package-grid">
-                <button class="package-card selected" data-copies="1" data-price="99">
-                    <span class="package-label">THE CLASSIC</span>
-                    <span class="package-number">01</span>
-                    <span class="package-title">One for you</span>
-                    <span class="package-detail">4 photographs · 1 strip</span>
-                    <span class="package-price">₹99</span>
-                </button>
+            
+<div class="package-grid">
+    <button class="package-card selected"
+            data-copies="2" data-price="100" data-package="strips_2">
+        <span class="package-label">THE CLASSIC</span>
+        <span class="package-number">01</span>
+        <span class="package-title">A moment to share</span>
+        <span class="package-detail">4 photos · 2 strips · 1 sheet</span>
+        <span class="package-price">₹100</span>
+    </button>
 
-                <button class="package-card" data-copies="2" data-price="149">
-                    <span class="package-label">THE DOUBLE</span>
-                    <span class="package-number">02</span>
-                    <span class="package-title">One to share</span>
-                    <span class="package-detail">4 photographs · 2 strips</span>
-                    <span class="package-price">₹149</span>
-                </button>
-            </div>
+    <button class="package-card"
+            data-copies="4" data-price="200" data-package="strips_4">
+        <span class="package-label">THE DOUBLE</span>
+        <span class="package-number">02</span>
+        <span class="package-title">More to keep</span>
+        <span class="package-detail">4 photos · 4 strips · 2 sheets</span>
+        <span class="package-price">₹200</span>
+    </button>
+
+    <button class="package-card"
+            data-copies="6" data-price="400" data-package="strips_6">
+        <span class="package-label">THE KEEPSAKE</span>
+        <span class="package-number">03</span>
+        <span class="package-title">Memories for everyone</span>
+        <span class="package-detail">4 photos · 6 strips · 3 sheets</span>
+        <span class="package-price">₹400</span>
+    </button>
+</div>
+
+<div class="style-picker">
+    <p class="eyebrow">CHOOSE YOUR PHOTO STYLE</p>
+    <div class="style-options">
+        <button type="button" class="style-option selected"
+                data-photo-style="color" aria-pressed="true">
+            <span class="style-swatch color-swatch"></span>
+            Color
+        </button>
+        <button type="button" class="style-option"
+                data-photo-style="mono" aria-pressed="false">
+            <span class="style-swatch mono-swatch"></span>
+            Monochrome
+        </button>
+    </div>
+    <p class="sidebar-note">
+        Four photos, a classic black border, and two strips per sheet.
+    </p>
+</div>
+
 
             <div class="bottom-actions">
                 <button class="button button-light" data-go="welcome-screen">Back</button>
@@ -195,7 +227,7 @@
             </div>
 
             <div class="print-layout">
-                <canvas id="final-strip" width="600" height="1800"></canvas>
+                <canvas id="final-strip" width="1200" height="1800"></canvas>
                 <div class="print-info">
                     <p class="eyebrow">YOUR ORDER</p>
                     <h3 id="order-title">The Classic</h3>

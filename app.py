@@ -18,18 +18,25 @@ KEY_SECRET = os.getenv("RAZORPAY_KEY_SECRET", "")
 PAYMENT_MODE = os.getenv("PAYMENT_MODE", "test")
 
 # Prices are controlled by the server, never by browser input.
+
 PACKAGES = {
-    "classic": {
-        "name": "The Classic",
-        "copies": 1,
-        "amount": 9900,  # ₹99 in paise
-    },
-    "double": {
-        "name": "The Double",
+    "strips_2": {
+        "name": "Snapstory - 2 Strips",
         "copies": 2,
-        "amount": 14900,  # ₹149 in paise
+        "amount": 10000,  # ₹100 in paise
+    },
+    "strips_4": {
+        "name": "Snapstory - 4 Strips",
+        "copies": 4,
+        "amount": 20000,  # ₹200 in paise
+    },
+    "strips_6": {
+        "name": "Snapstory - 6 Strips",
+        "copies": 6,
+        "amount": 40000,  # ₹400 in paise
     },
 }
+
 
 # Vercel's /tmp directory is writable but temporary.
 # Locally, keep using the project database.

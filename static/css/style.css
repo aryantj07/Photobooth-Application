@@ -609,3 +609,76 @@ h1 em, h2 em {
     .payment-aside h3 { font-size: 28px; }
 }
 
+
+/* Snapstory package and photo-style options */
+.package-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.package-card {
+    min-width: 0;
+}
+
+.style-picker {
+    margin-top: 28px;
+    padding: 22px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+
+.style-picker .eyebrow {
+    margin-bottom: 14px;
+}
+
+.style-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.style-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.style-option.selected {
+    border: 2px solid var(--accent);
+    padding: 11px 17px;
+    background: #f2eee7;
+}
+
+.style-swatch {
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid #d0c8bc;
+}
+
+.color-swatch {
+    background: linear-gradient(135deg, #d7a28b, #e9d69e, #809b80, #8b9fca);
+}
+
+.mono-swatch {
+    background: linear-gradient(135deg, #111, #888, #eee);
+}
+
+@media (max-width: 900px) {
+    .package-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .package-grid {
+        grid-template-columns: 1fr;
+    }
+}
