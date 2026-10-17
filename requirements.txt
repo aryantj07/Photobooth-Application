@@ -3,3 +3,4 @@ Pillow
 pytest
 razorpay
 python-dotenv
+psycopg[binary]
